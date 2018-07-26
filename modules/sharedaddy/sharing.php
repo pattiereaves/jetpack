@@ -84,7 +84,14 @@ class Sharing_Admin {
 			}
 		}
 
-		$page_hook = add_submenu_page( 'options-general.php', __( 'Sharing Settings', 'jetpack' ), __( 'Sharing', 'jetpack' ), 'publish_posts', 'sharing', array( &$this, 'management_page' ) );
+		$page_hook = add_submenu_page(
+			'options-general.php',
+			__( 'Sharing Settings', 'jetpack' ),
+			__( 'Sharing', 'jetpack' ),
+			'publish_posts',
+			'sharing',
+			array( &$this, 'wrapper_admin_page' )
+		);
 		add_action( "load-{$page_hook}", array( &$this, 'redirect_to_calypso' ) );
 	}
 
@@ -184,6 +191,10 @@ class Sharing_Admin {
 		<?php endif; ?>
 	</li>
 <?php
+	}
+
+	public function wrapper_admin_page() {
+		Jetpack_Admin_Page::wrap_ui( array( &$this, 'management_page' ) );
 	}
 
 	public function management_page() {
