@@ -108,7 +108,7 @@ abstract class SAL_Site {
 	abstract protected function is_a8c_publication( $post_id );
 
 	public function is_automated_transfer() {
-		return false;
+		return apply_filters( 'rest_api_site_option_is_atomic', false );
 	}
 
 	public function is_wpcom_store() {
