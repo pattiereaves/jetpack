@@ -673,7 +673,7 @@ class Jetpack_Subscriptions {
 			$str .= '</li>';
 		}
 
-		$str .= "</ul></div>"
+		$str .= '</ul></div>';
 
 		/**
 		 * Filter the output of the subscription options appearing below the comment form.
